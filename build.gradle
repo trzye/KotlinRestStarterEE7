@@ -1,0 +1,26 @@
+group 'app-ear'
+version '0.1'
+
+apply plugin: 'java'
+apply plugin: 'ear'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	deploy project(path: ':krs-rest-services', configuration: 'archives')
+	providedCompile 'javax:javaee-api:7.0'
+}
+
+compileJava {
+    targetCompatibility = '1.7'
+    sourceCompatibility = '1.7'
+}
+
+ear {
+    deploymentDescriptor {  
+        applicationName = "customear"
+    }
+}
