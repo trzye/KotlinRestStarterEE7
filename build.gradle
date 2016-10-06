@@ -1,26 +1,46 @@
-group 'app-ear'
-version '0.1'
+group "app-ear"
+version "0.1"
 
-apply plugin: 'java'
-apply plugin: 'ear'
-apply plugin: 'war'
+apply plugin: "java"
+apply plugin: "kotlin"
+apply plugin: "ear"
+apply plugin: "war"
+apply plugin: "idea"
 
 repositories {
     mavenCentral()
 }
 
+allprojects {
+    apply plugin: "idea"
+}
+
 dependencies {
-	deploy project(path: ':krs-rest-services', configuration: 'archives')
-	providedCompile 'javax:javaee-api:7.0'
+	deploy project(path: ":krs-rest-services", configuration: "archives")
+	deploy project("krs-logic-business-layer")
+	providedCompile "javax:javaee-api:7.0"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 compileJava {
-    targetCompatibility = '1.7'
-    sourceCompatibility = '1.7'
+    targetCompatibility = "1.7"
+    sourceCompatibility = "1.8"
 }
 
 ear {
     deploymentDescriptor {  
-        applicationName = "customear"
+        applicationName = "krs"
     }
+}
+buildscript {
+    ext.kotlin_version = "1.0.4"
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+sourceSets {
+    main.java.srcDirs += "src/main/kotlin"
 }

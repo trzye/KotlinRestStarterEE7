@@ -13,3 +13,6 @@ hs_err_pid*
 
 */build/
 /build
+/app-ear.iml
+/app-ear.ipr
+/app-ear.iws

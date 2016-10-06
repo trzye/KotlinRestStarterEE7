@@ -1,12 +1,12 @@
-group "krs-rest-services"
+group 'krs-business-layer'
 
-apply plugin: "java"
-apply plugin: "kotlin"
-apply plugin: "war"
-apply plugin: "idea"
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'war'
+apply plugin: 'idea'
 
 buildscript {
-   ext.kotlin_version = "1.0.4"
+   ext.kotlin_version = '1.0.4'
 
    repositories {
      mavenCentral()
@@ -17,20 +17,19 @@ buildscript {
    }
 }
 
-ext.junit_version = "4.12"
+ext.junit_version = '4.12'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-	compile project(":krs-logic-business-layer")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:$junit_version"
-	providedCompile "javax:javaee-api:7.0"
+	providedCompile 'javax:javaee-api:7.0'
 }
 
 compileJava {
-    targetCompatibility = "1.7"
-    sourceCompatibility = "1.8"
+    targetCompatibility = '1.7'
+    sourceCompatibility = '1.8'
 }

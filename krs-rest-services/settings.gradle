@@ -1,1 +1,5 @@
-rootProject.name = 'krs-rest-services'
+rootProject.name = "krs-rest-services"
+
+include "krs-logic-business-layer"
+
+project(":krs-logic-business-layer").projectDir = new File("../krs-logic-business-layer")
