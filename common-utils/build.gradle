@@ -1,9 +1,8 @@
-group 'sandbox'
-version '0.1'
+group 'common-utils'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
-apply plugin: 'war'
+apply plugin: 'idea'
 
 buildscript {
    ext.kotlin_version = '1.0.4'
@@ -26,10 +25,9 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:$junit_version"
-	providedCompile 'javax:javaee-api:7.0'
 }
 
 compileJava {
     targetCompatibility = '1.7'
-    sourceCompatibility = '1.7'
+    sourceCompatibility = '1.8'
 }

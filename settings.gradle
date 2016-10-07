@@ -2,5 +2,9 @@ rootProject.name = "app-ear"
 
 include "krs-rest-services"
 include "krs-logic-business-layer"
-
-//project(":krs-rest-services").projectDir = new File("../krs-rest-services")
+include "krs-request-transport-objects"
+include "common-utils"
+include "common-extensions"
+include "krs-data-model"
+include "krs-data-model-access"
+include "krs-web-pages"
