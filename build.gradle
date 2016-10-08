@@ -20,6 +20,7 @@ dependencies {
     deploy project(path: ":krs-web-pages", configuration: "archives")
     deploy project("krs-logic-business-layer")
 	providedCompile "javax:javaee-api:7.0"
+    compile project(":common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 

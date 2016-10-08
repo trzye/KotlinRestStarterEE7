@@ -2,6 +2,7 @@ group 'krs-business-layer'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'war'
 apply plugin: 'idea'
 
 buildscript {
@@ -23,6 +24,9 @@ repositories {
 }
 
 dependencies {
+    compile project(":krs-data-model-access")
+    compile project(":krs-data-model")
+    compile project(":common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:$junit_version"
 	providedCompile 'javax:javaee-api:7.0'

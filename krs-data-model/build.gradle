@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+    compile project(":common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:$junit_version"
     providedCompile 'javax:javaee-api:7.0'

@@ -1,4 +1,4 @@
-group 'common-utils'
+group 'common'
 
 apply plugin: 'java'
 apply plugin: 'kotlin'

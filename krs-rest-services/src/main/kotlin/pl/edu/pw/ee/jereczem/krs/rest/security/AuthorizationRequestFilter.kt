@@ -1,6 +1,5 @@
 package pl.edu.pw.ee.jereczem.krs.rest.security
 
-import java.nio.charset.Charset
 import java.security.Principal
 import java.util.*
 import javax.ws.rs.WebApplicationException
