@@ -1,4 +1,4 @@
-package pl.edu.pw.ee.jereczem.krs.rest.services
+package pl.edu.pw.ee.jereczem.krs.rest.services.hello
 
 import pl.edu.pw.ee.jereczem.krs.business.hello.Hello
 import javax.ejb.EJB
@@ -14,11 +14,9 @@ import javax.ws.rs.core.SecurityContext
 @Path("/hello_world")
 open class HelloWorldService {
 
-    @EJB
-    lateinit var hello : Hello
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    open fun helloWorld(@Context securityContext: SecurityContext) = hello.hello(securityContext.userPrincipal.name)
+    open fun helloWorld(@Context securityContext: SecurityContext) = "Hello, world!"
 
 }
