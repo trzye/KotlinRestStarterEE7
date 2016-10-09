@@ -1,24 +1,25 @@
 package pl.edu.pw.ee.jereczem.krs.rest.security
 
 import pl.edu.pw.ee.jereczem.krs.business.security.SecurityController
+import pl.edu.pw.ee.jereczem.krs.rest.BeanProvider
 import java.security.Principal
 import java.util.*
 import javax.ejb.EJB
+import javax.ejb.SessionContext
+import javax.ejb.Singleton
+import javax.naming.InitialContext
 import javax.ws.rs.WebApplicationException
 import javax.ws.rs.container.ContainerRequestContext
 import javax.ws.rs.container.ContainerRequestFilter
+import javax.ws.rs.core.Context
 import javax.ws.rs.core.Response.Status
 import javax.ws.rs.core.SecurityContext
 import javax.ws.rs.ext.Provider
 
-/**
- * Created by micha on 06.10.2016.
- */
 @Provider
-open class AuthorizationRequestFilter : ContainerRequestFilter {
+class AuthorizationRequestFilter : ContainerRequestFilter {
 
-    @EJB
-    lateinit private var securityController : SecurityController
+    private var securityController = BeanProvider.provide(SecurityController::class.java)
 
     override fun filter(requestContext: ContainerRequestContext?) {
         if(requestContext != null) {
