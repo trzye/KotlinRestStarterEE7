@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    compile project(":krs-data-model-access")
+    providedCompile project(":krs-data-model-access")
     compile project(":krs-data-model")
     compile project(":common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

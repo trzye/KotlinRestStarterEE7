@@ -19,9 +19,12 @@ dependencies {
 	deploy project(path: ":krs-rest-services", configuration: "archives")
     deploy project(path: ":krs-web-pages", configuration: "archives")
     deploy project("krs-logic-business-layer")
-	providedCompile "javax:javaee-api:7.0"
-    compile project(":common")
+    deploy project("krs-data-model-access")
+    earlib project(":common")
+    earlib project(":krs-data-model")
+    earlib project(":krs-request-transport-objects")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    providedCompile "javax:javaee-api:7.0"
 }
 
 compileJava {

@@ -1,7 +1,5 @@
 package pl.edu.pw.ee.jereczem.krs.rest.services.hello
 
-import pl.edu.pw.ee.jereczem.krs.business.hello.Hello
-import javax.ejb.EJB
 import javax.ejb.Stateless
 import javax.ws.rs.Path
 import javax.ws.rs.GET
@@ -12,8 +10,7 @@ import javax.ws.rs.core.SecurityContext
 
 @Stateless
 @Path("/hello_world")
-open class HelloWorldService {
-
+open class HelloWorldRestService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

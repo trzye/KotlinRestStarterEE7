@@ -24,10 +24,10 @@ repositories {
 }
 
 dependencies {
-	compile project(":krs-logic-business-layer")
-    compile project(":krs-request-transport-objects")
-    compile project(":krs-data-model")
-    compile project(":common")
+    providedCompile project(":krs-logic-business-layer")
+    providedCompile project(":krs-request-transport-objects")
+    providedCompile project(":krs-data-model")
+    providedCompile project(":common")
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile "junit:junit:$junit_version"
 	providedCompile "javax:javaee-api:7.0"

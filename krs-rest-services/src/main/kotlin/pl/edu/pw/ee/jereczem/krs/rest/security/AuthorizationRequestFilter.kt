@@ -1,11 +1,13 @@
 package pl.edu.pw.ee.jereczem.krs.rest.security
 
+import pl.edu.pw.ee.jereczem.krs.business.security.SecurityController
 import java.security.Principal
 import java.util.*
+import javax.ejb.EJB
 import javax.ws.rs.WebApplicationException
 import javax.ws.rs.container.ContainerRequestContext
 import javax.ws.rs.container.ContainerRequestFilter
-import javax.ws.rs.core.Response.*
+import javax.ws.rs.core.Response.Status
 import javax.ws.rs.core.SecurityContext
 import javax.ws.rs.ext.Provider
 
@@ -14,13 +16,19 @@ import javax.ws.rs.ext.Provider
  */
 @Provider
 open class AuthorizationRequestFilter : ContainerRequestFilter {
+
+    @EJB
+    lateinit private var securityController : SecurityController
+
     override fun filter(requestContext: ContainerRequestContext?) {
         if(requestContext != null) {
             val credentials = requestContext.getCredentialsOfBasicAuthorization()
             if (credentials != null) {
                 val securityContext = KrsSecurityContext(credentials.username)
-                requestContext.securityContext = securityContext
-                return
+                if(securityController.areCredentialsCorrect(credentials.username, credentials.password)){
+                    requestContext.securityContext = securityContext
+                    return
+                }
             }
         }
         throw WebApplicationException(Status.UNAUTHORIZED)
